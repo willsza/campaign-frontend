@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
+
 import "./globals.css";
 
 import Header from "@/components/layout/Header";
@@ -22,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
@@ -30,10 +31,10 @@ export default function RootLayout({
         )}
       >
         <Header />
-        <div className="flex h-screen overflow-hidden">
+        <section className="flex h-screen overflow-hidden">
           <Sidebar />
           <main className="flex-1 overflow-hidden pt-16">{children}</main>
-        </div>
+        </section>
       </body>
     </html>
   );
