@@ -7,14 +7,14 @@ import { Button } from "@/components/ui/button";
 import { DataTable } from "@/components/ui/data-table";
 import { Heading } from "@/components/ui/heading";
 import { Separator } from "@/components/ui/separator";
-import { User } from "@/constants/data";
+import { Campaign } from "@/constants/data";
 import { columns } from "./columns";
 
 interface ProductsClientProps {
-  data: User[];
+  data: Campaign[];
 }
 
-export const UserClient: React.FC<ProductsClientProps> = ({ data }) => {
+export const CampaignClient: React.FC<ProductsClientProps> = ({ data }) => {
   const router = useRouter();
 
   return (
@@ -28,11 +28,11 @@ export const UserClient: React.FC<ProductsClientProps> = ({ data }) => {
           className="text-xs md:text-sm"
           onClick={() => router.push(`/dashboard/user/new`)}
         >
-          <Plus className="mr-2 h-4 w-4" /> Add New
+          <Plus className="mr-2 h-4 w-4" /> Nova Campanha
         </Button>
       </div>
       <Separator />
-      <DataTable searchKey="name" columns={columns} data={data} />
+      <DataTable searchKey="nome" columns={columns} data={data} />
     </>
   );
 };

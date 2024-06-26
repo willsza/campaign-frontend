@@ -3,10 +3,10 @@
 import { ColumnDef } from "@tanstack/react-table";
 
 import { Checkbox } from "@/components/ui/checkbox";
-import { User } from "@/constants/data";
+import { Campaign } from "@/constants/data";
 import { CellAction } from "./cell-action";
 
-export const columns: ColumnDef<User>[] = [
+export const columns: ColumnDef<Campaign>[] = [
   {
     id: "select",
     header: ({ table }) => (
@@ -27,16 +27,16 @@ export const columns: ColumnDef<User>[] = [
     enableHiding: false,
   },
   {
-    accessorKey: "name",
-    header: "NAME",
+    accessorKey: "nome",
+    header: "NOME",
   },
   {
-    accessorKey: "company",
-    header: "COMPANY",
+    accessorKey: "categoria",
+    header: "CATEGORIA",
   },
   {
-    accessorKey: "role",
-    header: "ROLE",
+    accessorKey: "dataInicio",
+    header: "Início",
   },
   {
     accessorKey: "status",

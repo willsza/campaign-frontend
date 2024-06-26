@@ -9,17 +9,6 @@ export type User = {
   status: string;
 };
 
-export type Campaign = {
-  id: number;
-  nome: string;
-  dataCadastro: Date;
-  dataInicio: Date;
-  dataFim: Date;
-  status: string;
-  categoria: number;
-  isDeleted: boolean;
-};
-
 export const users: User[] = [
   {
     id: 1,
@@ -140,5 +129,69 @@ export const navItems: NavItem[] = [
     href: "/",
     icon: "login",
     label: "login",
+  },
+];
+
+export type Campaign = {
+  id: number;
+  nome: string;
+  dataCadastro: Date;
+  dataInicio: Date;
+  dataFim: Date;
+  status: string;
+  categoria: number;
+  isDeleted: boolean;
+};
+
+export const campaigns: Campaign[] = [
+  {
+    id: 1,
+    nome: "Campanha de Verão",
+    dataCadastro: new Date("2024-06-26T00:52:21.920Z"),
+    dataInicio: new Date("2024-06-26T00:52:21.920Z"),
+    dataFim: new Date("2024-06-26T00:52:21.920Z"),
+    status: "Ativa",
+    categoria: 1,
+    isDeleted: false,
+  },
+  {
+    id: 2,
+    nome: "Campanha de Inverno",
+    dataCadastro: new Date("2024-06-26T00:52:21.920Z"),
+    dataInicio: new Date("2024-06-26T00:52:21.920Z"),
+    dataFim: new Date("2024-06-26T00:52:21.920Z"),
+    status: "Ativa",
+    categoria: 2,
+    isDeleted: false,
+  },
+  {
+    id: 3,
+    nome: "Campanha de Primavera",
+    dataCadastro: new Date("2024-06-26T00:52:21.920Z"),
+    dataInicio: new Date("2024-06-26T00:52:21.920Z"),
+    dataFim: new Date("2024-06-26T00:52:21.920Z"),
+    status: "Ativa",
+    categoria: 1,
+    isDeleted: false,
+  },
+  {
+    id: 4,
+    nome: "Campanha de Outono",
+    dataCadastro: new Date("2024-06-26T00:52:21.920Z"),
+    dataInicio: new Date("2024-06-26T00:52:21.920Z"),
+    dataFim: new Date("2024-06-26T00:52:21.920Z"),
+    status: "Ativa",
+    categoria: 2,
+    isDeleted: false,
+  },
+  {
+    id: 5,
+    nome: "Black Friday",
+    dataCadastro: new Date("2024-06-26T00:52:21.920Z"),
+    dataInicio: new Date("2024-06-26T00:52:21.920Z"),
+    dataFim: new Date("2024-06-26T00:52:21.920Z"),
+    status: "Ativa",
+    categoria: 3,
+    isDeleted: false,
   },
 ];

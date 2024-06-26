@@ -13,10 +13,10 @@ import {
   DropdownMenuLabel,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { User } from "@/constants/data";
+import { Campaign } from "@/constants/data";
 
 interface CellActionProps {
-  data: User;
+  data: Campaign;
 }
 
 export const CellAction: React.FC<CellActionProps> = ({ data }) => {
