@@ -17,6 +17,7 @@ import {
   LogIn,
   LucideIcon,
   LucideProps,
+  Megaphone,
   Moon,
   MoreVertical,
   Pizza,
@@ -28,8 +29,8 @@ import {
   User,
   User2Icon,
   UserX2Icon,
-  X
-} from 'lucide-react';
+  X,
+} from "lucide-react";
 
 export type Icon = LucideIcon;
 
@@ -78,5 +79,6 @@ export const Icons = {
     </svg>
   ),
   twitter: Twitter,
-  check: Check
+  check: Check,
+  campaign: Megaphone,
 };
