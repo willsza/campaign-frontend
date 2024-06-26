@@ -9,6 +9,17 @@ export type User = {
   status: string;
 };
 
+export type Campaign = {
+  id: number;
+  nome: string;
+  dataCadastro: Date;
+  dataInicio: Date;
+  dataFim: Date;
+  status: string;
+  categoria: number;
+  isDeleted: boolean;
+};
+
 export const users: User[] = [
   {
     id: 1,

@@ -21,8 +21,8 @@ export const UserClient: React.FC<ProductsClientProps> = ({ data }) => {
     <>
       <div className="flex items-start justify-between">
         <Heading
-          title={`Users (${data.length})`}
-          description="Manage users (Client side table functionalities.)"
+          title={`Campanhas (${data.length})`}
+          description="Gerenciamento de campanhas"
         />
         <Button
           className="text-xs md:text-sm"
