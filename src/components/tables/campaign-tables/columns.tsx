@@ -39,6 +39,10 @@ export const columns: ColumnDef<Campaign>[] = [
     header: "Início",
   },
   {
+    accessorKey: "dataFim",
+    header: "Fim",
+  },
+  {
     accessorKey: "status",
     header: "STATUS",
   },
