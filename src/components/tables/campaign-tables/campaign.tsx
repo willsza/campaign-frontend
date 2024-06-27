@@ -1,22 +1,17 @@
 "use client";
 
-import { Plus } from "lucide-react";
-import { useRouter } from "next/navigation";
-
-import { Button } from "@/components/ui/button";
+import NewCampaignDialog from "@/components/campaign/NewCampaignDialog";
 import { DataTable } from "@/components/ui/data-table";
 import { Heading } from "@/components/ui/heading";
 import { Separator } from "@/components/ui/separator";
 import { Campaign } from "@/constants/data";
 import { columns } from "./columns";
 
-interface ProductsClientProps {
+interface CampaignsProps {
   data: Campaign[];
 }
 
-export const CampaignClient: React.FC<ProductsClientProps> = ({ data }) => {
-  const router = useRouter();
-
+export const CampaignClient: React.FC<CampaignsProps> = ({ data }) => {
   return (
     <>
       <div className="flex items-start justify-between">
@@ -24,12 +19,7 @@ export const CampaignClient: React.FC<ProductsClientProps> = ({ data }) => {
           title={`Campanhas (${data.length})`}
           description="Gerenciamento de campanhas"
         />
-        <Button
-          className="text-xs md:text-sm"
-          onClick={() => router.push(`/dashboard/user/new`)}
-        >
-          <Plus className="mr-2 h-4 w-4" /> Nova Campanha
-        </Button>
+        <NewCampaignDialog />
       </div>
       <Separator />
       <DataTable searchKey="nome" columns={columns} data={data} />
