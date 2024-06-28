@@ -16,7 +16,7 @@ export default async function Page({ params }: CampaignPageProps) {
 
   const breadcrumbItems = [
     { title: "Campanhas", link: "/dashboard/campaigns" },
-    { title: "Editar", link: "/dashboard/campaign/1" },
+    { title: "Editar", link: "/dashboard/campaigns/1" },
   ];
 
   return (
