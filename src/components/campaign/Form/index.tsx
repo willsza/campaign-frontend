@@ -5,6 +5,7 @@ import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
 import { useForm } from "react-hook-form";
 
+import { Icons } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
 import {
@@ -52,6 +53,9 @@ export function CampaignForm({
       categoria: campaign?.categoria._id || "",
     },
   });
+
+  const buttonLabel = campaign ? "Editar" : "Adicionar";
+  const Spinner = Icons["spinner"];
 
   return (
     <Form {...form}>
@@ -182,7 +186,13 @@ export function CampaignForm({
         />
 
         <footer className="pt-2">
-          <Button type="submit">Adicionar</Button>
+          <Button type="submit">
+            {form.formState.isSubmitting ? (
+              <Spinner className="animate-spin" />
+            ) : (
+              buttonLabel
+            )}
+          </Button>
         </footer>
       </form>
     </Form>

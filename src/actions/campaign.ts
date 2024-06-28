@@ -98,7 +98,7 @@ export async function campaignDelete(id: number) {
  * @returns A promise that resolves to the updated campaign.
  * @throws An error if the form is not valid or the request fails.
  */
-export async function campaignUpdate(id: string, body: formSchemaType) {
+export async function campaignUpdate(id: number, body: formSchemaType) {
   const validation = formSchema.safeParse(body);
 
   if (!validation.success) {

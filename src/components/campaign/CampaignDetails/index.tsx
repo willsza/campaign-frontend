@@ -2,7 +2,7 @@
 
 import { Fragment } from "react";
 
-import { campaignCreate } from "@/actions/campaign";
+import { campaignUpdate } from "@/actions/campaign";
 import { CampaignForm } from "@/components/campaign/Form";
 import { Heading } from "@/components/ui/heading";
 import { Separator } from "@/components/ui/separator";
@@ -25,15 +25,15 @@ export function CampaignDetails({
 
   const handleSubmit = async (values: formSchemaType) => {
     try {
-      const formId = await campaignCreate(values);
+      const formId = await campaignUpdate(campaign.id, values);
       toast({
         title: "Success",
-        description: "Campanha criada com sucesso.",
+        description: "Campanha editada com sucesso.",
       });
     } catch (error) {
       toast({
         title: "Error",
-        description: "Erro ao criar campanha.",
+        description: "Erro ao editar campanha.",
         variant: "destructive",
       });
     }
