@@ -5,7 +5,9 @@ const breadcrumbItems = [{ title: "Campanhas", link: "/dashboard/campaigns" }];
 
 async function getData() {
   const res = await fetch("http://localhost:3001/campaigns", {
-    cache: "no-cache",
+    next: {
+      tags: ["campaigns"],
+    },
   });
 
   if (!res.ok) {

@@ -4,6 +4,7 @@ import { Plus } from "lucide-react";
 import { useState } from "react";
 
 import { campaignCreate } from "@/actions/campaign";
+import { CampaignForm } from "@/components/campaign/Form";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -15,7 +16,6 @@ import {
 } from "@/components/ui/dialog";
 import { toast } from "@/components/ui/use-toast";
 import { formSchemaType } from "@/schemas/campaign";
-import { CampaignForm } from "../Form";
 
 export function NewCampaignDialog() {
   const [open, setOpen] = useState(false);
@@ -31,13 +31,13 @@ export function NewCampaignDialog() {
       const formId = await campaignCreate(values);
       toast({
         title: "Success",
-        description: "Form created successfully",
+        description: "Campanha criada com sucesso.",
       });
       setOpen(false);
     } catch (error) {
       toast({
         title: "Error",
-        description: "Something went wrong, please try again later",
+        description: "Erro ao criar campanha.",
         variant: "destructive",
       });
     }

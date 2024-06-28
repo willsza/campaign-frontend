@@ -1,5 +1,7 @@
 "use server";
 
+import { revalidateTag } from "next/cache";
+
 import { formSchema, formSchemaType } from "@/schemas/campaign";
 
 export async function campaignCreate(body: formSchemaType) {
@@ -21,5 +23,6 @@ export async function campaignCreate(body: formSchemaType) {
     throw new Error("Failed to create campaign");
   }
 
+  revalidateTag("campaigns");
   return res.json();
 }
