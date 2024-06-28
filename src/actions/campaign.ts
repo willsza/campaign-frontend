@@ -73,25 +73,6 @@ export async function campaignCreate(body: formSchemaType) {
 }
 
 /**
- * Deletes a campaign.
- * @param id - The ID of the campaign to delete.
- * @returns A promise that resolves to the deleted campaign.
- * @throws An error if the request fails.
- */
-export async function campaignDelete(id: number) {
-  const res = await fetch(`http://localhost:3001/campaigns/${id}`, {
-    method: "DELETE",
-  });
-
-  if (!res.ok) {
-    throw new Error("Failed to delete campaign");
-  }
-
-  revalidateTag("campaigns");
-  return res.json();
-}
-
-/**
  * Updates a campaign.
  * @param id - The ID of the campaign to update.
  * @param body - The updated data for the campaign.
@@ -119,4 +100,22 @@ export async function campaignUpdate(id: number, body: formSchemaType) {
 
   revalidateTag("campaigns");
   return res.json();
+}
+
+/**
+ * Deletes a campaign.
+ * @param id - The ID of the campaign to delete.
+ * @returns A promise that resolves to the deleted campaign.
+ * @throws An error if the request fails.
+ */
+export async function campaignDelete(id: number) {
+  const res = await fetch(`http://localhost:3001/campaigns/${id}`, {
+    method: "DELETE",
+  });
+
+  if (!res) {
+    throw new Error("Failed to delete campaign");
+  }
+
+  revalidateTag("campaigns");
 }

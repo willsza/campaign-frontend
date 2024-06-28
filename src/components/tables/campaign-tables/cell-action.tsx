@@ -4,6 +4,7 @@ import { Edit, MoreHorizontal, Trash } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
+import { campaignDelete } from "@/actions/campaign";
 import { AlertModal } from "@/components/modal/alert-modal";
 import { Button } from "@/components/ui/button";
 import {
@@ -13,6 +14,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { toast } from "@/components/ui/use-toast";
 import { Campaign } from "@/models/campaign";
 
 interface CellActionProps {
@@ -24,7 +26,27 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
   const [open, setOpen] = useState(false);
   const router = useRouter();
 
-  const onConfirm = async () => {};
+  const onConfirm = async () => {
+    setLoading(true);
+
+    try {
+      await campaignDelete(data.id);
+      toast({
+        title: "Success",
+        description: "Campanha exluida com sucesso.",
+      });
+      setLoading(false);
+      setOpen(false);
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Erro ao excluir campanha.",
+        variant: "destructive",
+      });
+      setLoading(false);
+      setOpen(false);
+    }
+  };
 
   return (
     <>
@@ -49,7 +71,10 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
           >
             <Edit className="mr-2 h-4 w-4" /> Atualizar
           </DropdownMenuItem>
-          <DropdownMenuItem onClick={() => setOpen(true)}>
+          <DropdownMenuItem
+            onClick={() => setOpen(true)}
+            className="text-destructive"
+          >
             <Trash className="mr-2 h-4 w-4" /> Excluir
           </DropdownMenuItem>
         </DropdownMenuContent>
