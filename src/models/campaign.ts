@@ -1,8 +1,8 @@
 import { Category } from "./categories";
 
 export enum CampaignStatus {
-  ACTIVE = "Ativa",
-  INACTIVE = "Inativa",
+  ACTIVE = "ativa",
+  INACTIVE = "inativa",
 }
 
 export type Campaign = {

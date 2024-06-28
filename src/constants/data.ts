@@ -1,5 +1,6 @@
 import { formatarData } from "@/lib/utils";
 import { Campaign, CampaignStatus } from "@/models/campaign";
+import { Category } from "@/models/categories";
 import { NavItem } from "@/types";
 
 export type User = {
@@ -132,6 +133,12 @@ export const navItems: NavItem[] = [
     icon: "login",
     label: "login",
   },
+];
+
+export const categories: Category[] = [
+  { _id: "1", name: "Categoria 1" },
+  { _id: "2", name: "Categoria 2" },
+  { _id: "3", name: "Categoria 3" },
 ];
 
 export const campaigns: Campaign[] = [
