@@ -24,6 +24,26 @@ export async function campaignList() {
 }
 
 /**
+ * Fetches a campaign by ID.
+ * @param id - The ID of the campaign to fetch.
+ * @returns A promise that resolves to the campaign.
+ * @throws An error if the request fails.
+ */
+export async function campaignById(id: number) {
+  const res = await fetch(`http://localhost:3001/campaigns/${id}`, {
+    next: {
+      tags: ["campaigns"],
+    },
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+}
+
+/**
  * Creates a new campaign.
  * @param body - The data for the new campaign.
  * @returns A promise that resolves to the created campaign.
@@ -58,7 +78,7 @@ export async function campaignCreate(body: formSchemaType) {
  * @returns A promise that resolves to the deleted campaign.
  * @throws An error if the request fails.
  */
-export async function campaignDelete(id: string) {
+export async function campaignDelete(id: number) {
   const res = await fetch(`http://localhost:3001/campaigns/${id}`, {
     method: "DELETE",
   });
