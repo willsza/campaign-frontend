@@ -4,7 +4,7 @@ import { CampaignClient } from "@/components/tables/campaign-tables/campaign";
 const breadcrumbItems = [{ title: "Campanhas", link: "/dashboard/campaigns" }];
 
 async function getData() {
-  const res = await fetch("http://localhost:3001/campaign", {
+  const res = await fetch("http://localhost:3001/campaigns", {
     cache: "no-cache",
   });
 

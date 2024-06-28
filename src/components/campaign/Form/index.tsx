@@ -3,8 +3,8 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
@@ -30,40 +30,18 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
-
-const formSchema = z.object({
-  nome: z
-    .string({
-      required_error: "Nome é obrigatório.",
-    })
-    .min(2, {
-      message: "Nome deve ter no mínimo 2 caracteres.",
-    }),
-  dataInicio: z.date({
-    required_error: "A data de início é obrigatória.",
-  }),
-  dataFim: z.date({
-    required_error: "A data de término é obrigatória.",
-  }),
-  categoria: z.string({
-    required_error: "Categoria é obrigatória.",
-  }),
-});
+import { formSchema, formSchemaType } from "@/schemas/campaign";
 
 type CampaignFormProps = {
   categories: { _id: string; name: string }[];
+  onSubmit: (values: formSchemaType) => void;
 };
 
-export function CampaignForm({ categories }: CampaignFormProps) {
-  const form = useForm<z.infer<typeof formSchema>>({
+export function CampaignForm({ categories, onSubmit }: CampaignFormProps) {
+  const router = useRouter();
+  const form = useForm<formSchemaType>({
     resolver: zodResolver(formSchema),
   });
-
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
-  }
 
   return (
     <Form {...form}>
