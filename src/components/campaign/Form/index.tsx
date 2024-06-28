@@ -38,9 +38,19 @@ type CampaignFormProps = {
   onSubmit: (values: formSchemaType) => void;
 };
 
-export function CampaignForm({ categories, onSubmit }: CampaignFormProps) {
+export function CampaignForm({
+  campaign,
+  categories,
+  onSubmit,
+}: CampaignFormProps) {
   const form = useForm<formSchemaType>({
     resolver: zodResolver(formSchema),
+    defaultValues: {
+      nome: campaign?.nome || "",
+      dataInicio: new Date(),
+      dataFim: new Date(),
+      categoria: campaign?.categoria._id || "",
+    },
   });
 
   return (

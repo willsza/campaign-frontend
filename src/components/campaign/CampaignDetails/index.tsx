@@ -54,7 +54,11 @@ export function CampaignDetails({
         </p>
       </section>
       <Separator />
-      <CampaignForm categories={categories} onSubmit={handleSubmit} />
+      <CampaignForm
+        campaign={campaign}
+        categories={categories}
+        onSubmit={handleSubmit}
+      />
     </Fragment>
   );
 }
