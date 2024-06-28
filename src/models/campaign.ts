@@ -1,17 +1,25 @@
 import { Category } from "./categories";
 
 export enum CampaignStatus {
-  ACTIVE = "active",
-  INACTIVE = "inactive",
+  ACTIVE = "Ativa",
+  INACTIVE = "Inativa",
 }
 
 export type Campaign = {
   id: number;
   nome: string;
-  dataInicio: Date;
-  dataFim: Date;
-  dataCadastro: Date;
+  dataInicio: string;
+  dataFim: string;
+  dataCadastro: string;
   categoria: Category;
   status: CampaignStatus;
-  createdAt: string;
 };
+
+export type CampaignCreateParams = {
+  nome: string;
+  dataInicio: string;
+  dataFim: string;
+  categoria: string;
+};
+
+export type CampaignUpdateParams = CampaignCreateParams;

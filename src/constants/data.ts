@@ -1,4 +1,5 @@
 import { formatarData } from "@/lib/utils";
+import { Campaign, CampaignStatus } from "@/models/campaign";
 import { NavItem } from "@/types";
 
 export type User = {
@@ -133,17 +134,6 @@ export const navItems: NavItem[] = [
   },
 ];
 
-export type Campaign = {
-  id: number;
-  nome: string;
-  dataCadastro: string;
-  dataInicio: string;
-  dataFim: string;
-  status: string;
-  categoria: number;
-  isDeleted: boolean;
-};
-
 export const campaigns: Campaign[] = [
   {
     id: 1,
@@ -151,9 +141,8 @@ export const campaigns: Campaign[] = [
     dataCadastro: formatarData(new Date("2024-06-26T00:52:21.920Z")),
     dataInicio: formatarData(new Date("2024-06-26T00:52:21.920Z")),
     dataFim: formatarData(new Date("2024-06-26T00:52:21.920Z")),
-    status: "Ativa",
-    categoria: 1,
-    isDeleted: false,
+    status: CampaignStatus.ACTIVE,
+    categoria: { _id: "1", name: "Categoria 1" },
   },
   {
     id: 2,
@@ -161,9 +150,8 @@ export const campaigns: Campaign[] = [
     dataCadastro: formatarData(new Date("2024-06-26T00:52:21.920Z")),
     dataInicio: formatarData(new Date("2024-06-26T00:52:21.920Z")),
     dataFim: formatarData(new Date("2024-06-26T00:52:21.920Z")),
-    status: "Ativa",
-    categoria: 2,
-    isDeleted: false,
+    status: CampaignStatus.ACTIVE,
+    categoria: { _id: "1", name: "Categoria 1" },
   },
   {
     id: 3,
@@ -171,9 +159,8 @@ export const campaigns: Campaign[] = [
     dataCadastro: formatarData(new Date("2024-06-26T00:52:21.920Z")),
     dataInicio: formatarData(new Date("2024-06-26T00:52:21.920Z")),
     dataFim: formatarData(new Date("2024-06-26T00:52:21.920Z")),
-    status: "Ativa",
-    categoria: 1,
-    isDeleted: false,
+    status: CampaignStatus.ACTIVE,
+    categoria: { _id: "1", name: "Categoria 1" },
   },
   {
     id: 4,
@@ -181,9 +168,8 @@ export const campaigns: Campaign[] = [
     dataCadastro: formatarData(new Date("2024-06-26T00:52:21.920Z")),
     dataInicio: formatarData(new Date("2024-06-26T00:52:21.920Z")),
     dataFim: formatarData(new Date("2024-06-26T00:52:21.920Z")),
-    status: "Ativa",
-    categoria: 2,
-    isDeleted: false,
+    status: CampaignStatus.ACTIVE,
+    categoria: { _id: "1", name: "Categoria 1" },
   },
   {
     id: 5,
@@ -191,8 +177,7 @@ export const campaigns: Campaign[] = [
     dataCadastro: formatarData(new Date("2024-06-26T00:52:21.920Z")),
     dataInicio: formatarData(new Date("2024-06-26T00:52:21.920Z")),
     dataFim: formatarData(new Date("2024-06-26T00:52:21.920Z")),
-    status: "Ativa",
-    categoria: 3,
-    isDeleted: false,
+    status: CampaignStatus.ACTIVE,
+    categoria: { _id: "1", name: "Categoria 1" },
   },
 ];

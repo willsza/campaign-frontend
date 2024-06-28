@@ -7,17 +7,21 @@ import { CampaignForm } from "@/components/campaign/Form";
 import { Heading } from "@/components/ui/heading";
 import { Separator } from "@/components/ui/separator";
 import { toast } from "@/components/ui/use-toast";
+import { Campaign } from "@/models/campaign";
+import { Category } from "@/models/categories";
 import { formSchemaType } from "@/schemas/campaign";
 
-export function CampaignDetails() {
+type CampaignDetailsProps = {
+  campaign: Campaign;
+  categories: Category[];
+};
+
+export function CampaignDetails({
+  campaign,
+  categories,
+}: CampaignDetailsProps) {
   const title = "Editar campanha";
   const description = "Edite os dados da campanha.";
-
-  const categories = [
-    { _id: "1", name: "Categoria 1" },
-    { _id: "2", name: "Categoria 2" },
-    { _id: "3", name: "Categoria 3" },
-  ];
 
   const handleSubmit = async (values: formSchemaType) => {
     try {
@@ -37,12 +41,17 @@ export function CampaignDetails() {
 
   return (
     <Fragment>
-      <div className="flex items-center justify-between">
+      <section className="flex items-center justify-between">
         <Heading title={title} description={description} />
-      </div>
+      </section>
       <Separator />
-      <section>
-        <p>Cadastrada em: </p>
+      <section className="flex items-center gap-4">
+        <p>
+          <strong>Cadastrada em:</strong> {campaign.dataCadastro}
+        </p>
+        <p>
+          <strong>Status:</strong> {campaign.status}
+        </p>
       </section>
       <Separator />
       <CampaignForm categories={categories} onSubmit={handleSubmit} />

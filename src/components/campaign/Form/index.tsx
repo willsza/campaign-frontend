@@ -29,9 +29,11 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
+import { Campaign } from "@/models/campaign";
 import { formSchema, formSchemaType } from "@/schemas/campaign";
 
 type CampaignFormProps = {
+  campaign?: Campaign;
   categories: { _id: string; name: string }[];
   onSubmit: (values: formSchemaType) => void;
 };
