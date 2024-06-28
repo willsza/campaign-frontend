@@ -1,24 +1,11 @@
+import { campaignList } from "@/actions/campaign";
 import BreadCrumb from "@/components/layout/Breadcrumb";
 import { CampaignClient } from "@/components/tables/campaign-tables/campaign";
 
 const breadcrumbItems = [{ title: "Campanhas", link: "/dashboard/campaigns" }];
 
-async function getData() {
-  const res = await fetch("http://localhost:3001/campaigns", {
-    next: {
-      tags: ["campaigns"],
-    },
-  });
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-
-  return res.json();
-}
-
 export default async function page() {
-  const data = await getData();
+  const data = await campaignList();
 
   return (
     <>
