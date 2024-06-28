@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Dispatch, SetStateAction } from "react";
 
 import { Icons } from "@/components/icons";
 import {
@@ -13,7 +14,6 @@ import {
 import { useSidebar } from "@/hooks/useSidebar";
 import { cn } from "@/lib/utils";
 import { NavItem } from "@/types";
-import { Dispatch, SetStateAction } from "react";
 
 interface DashboardNavProps {
   items: NavItem[];
@@ -32,8 +32,6 @@ export function DashboardNav({
   if (!items?.length) {
     return null;
   }
-
-  console.log("isActive", isMobileNav, isMinimized);
 
   return (
     <nav className="grid items-start gap-2">

@@ -1,6 +1,6 @@
 "use client";
 
-import NewCampaignDialog from "@/components/campaign/NewCampaignDialog";
+import { NewCampaignDialog } from "@/components/campaign/NewCampaignDialog";
 import { DataTable } from "@/components/ui/data-table";
 import { Heading } from "@/components/ui/heading";
 import { Separator } from "@/components/ui/separator";

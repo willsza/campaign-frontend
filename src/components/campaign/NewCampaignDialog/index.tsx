@@ -1,23 +1,22 @@
 "use client";
 
 import { Plus } from "lucide-react";
+import React from "react";
 
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import { CampaignForm } from "../Form";
 
 // import { useTaskStore } from '@/lib/store';
 
-export default function NewCampaignDialog() {
+export function NewCampaignDialog() {
   // const addTask = useTaskStore((state) => state.addTask);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -30,6 +29,12 @@ export default function NewCampaignDialog() {
     if (typeof title !== "string" || typeof description !== "string") return;
     // addTask(title, description);
   };
+
+  const categories = [
+    { _id: "1", name: "Categoria 1" },
+    { _id: "2", name: "Categoria 2" },
+    { _id: "3", name: "Categoria 3" },
+  ];
 
   return (
     <Dialog>
@@ -45,35 +50,7 @@ export default function NewCampaignDialog() {
             Preencha os campos abaixo para criar uma nova campanha.
           </DialogDescription>
         </DialogHeader>
-        <form
-          id="todo-form"
-          className="grid gap-4 py-4"
-          onSubmit={handleSubmit}
-        >
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Input
-              id="name"
-              name="nome"
-              placeholder="Nome da campanha.."
-              className="col-span-4"
-            />
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Textarea
-              id="description"
-              name="description"
-              placeholder="Description..."
-              className="col-span-4"
-            />
-          </div>
-        </form>
-        <DialogFooter>
-          <DialogTrigger asChild>
-            <Button type="submit" size="sm" form="todo-form">
-              Adicionar
-            </Button>
-          </DialogTrigger>
-        </DialogFooter>
+        <CampaignForm categories={categories} />
       </DialogContent>
     </Dialog>
   );

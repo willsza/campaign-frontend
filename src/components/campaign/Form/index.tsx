@@ -32,9 +32,13 @@ import {
 import { cn } from "@/lib/utils";
 
 const formSchema = z.object({
-  nome: z.string().min(2, {
-    message: "Nome deve ter no mínimo 2 caracteres.",
-  }),
+  nome: z
+    .string({
+      required_error: "Nome é obrigatório.",
+    })
+    .min(2, {
+      message: "Nome deve ter no mínimo 2 caracteres.",
+    }),
   dataInicio: z.date({
     required_error: "A data de início é obrigatória.",
   }),
@@ -46,7 +50,11 @@ const formSchema = z.object({
   }),
 });
 
-export function CampaignForm() {
+type CampaignFormProps = {
+  categories: { _id: string; name: string }[];
+};
+
+export function CampaignForm({ categories }: CampaignFormProps) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
   });
@@ -173,9 +181,11 @@ export function CampaignForm() {
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
-                  <SelectItem value="1">Categoria 1</SelectItem>
-                  <SelectItem value="2">Categoria 2</SelectItem>
-                  <SelectItem value="3">Categoria 3</SelectItem>
+                  {categories.map((category) => (
+                    <SelectItem key={category._id} value={category._id}>
+                      {category.name}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
               <FormMessage />
