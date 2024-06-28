@@ -4,7 +4,7 @@ import { NewCampaignDialog } from "@/components/campaign/NewCampaignDialog";
 import { DataTable } from "@/components/ui/data-table";
 import { Heading } from "@/components/ui/heading";
 import { Separator } from "@/components/ui/separator";
-import { Campaign } from "@/constants/data";
+import { Campaign } from "@/models/campaign";
 import { columns } from "./columns";
 
 interface CampaignsProps {

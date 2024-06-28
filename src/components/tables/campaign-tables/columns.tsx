@@ -3,7 +3,7 @@
 import { ColumnDef } from "@tanstack/react-table";
 
 import { Checkbox } from "@/components/ui/checkbox";
-import { Campaign } from "@/constants/data";
+import { Campaign } from "@/models/campaign";
 import { CellAction } from "./cell-action";
 
 export const columns: ColumnDef<Campaign>[] = [
@@ -36,11 +36,11 @@ export const columns: ColumnDef<Campaign>[] = [
   },
   {
     accessorKey: "dataInicio",
-    header: "Início",
+    header: "INÍCIO",
   },
   {
     accessorKey: "dataFim",
-    header: "Fim",
+    header: "TÉRMINO",
   },
   {
     accessorKey: "status",
