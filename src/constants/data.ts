@@ -1,5 +1,3 @@
-import { formatarData } from "@/lib/utils";
-import { Campaign, CampaignStatus } from "@/models/campaign";
 import { Category } from "@/models/categories";
 import { NavItem } from "@/types";
 
@@ -139,52 +137,4 @@ export const categories: Category[] = [
   { _id: "1", name: "Categoria 1" },
   { _id: "2", name: "Categoria 2" },
   { _id: "3", name: "Categoria 3" },
-];
-
-export const campaigns: Campaign[] = [
-  {
-    id: 1,
-    nome: "Campanha de Verão",
-    dataCadastro: formatarData(new Date("2024-06-26T00:52:21.920Z")),
-    dataInicio: formatarData(new Date("2024-06-26T00:52:21.920Z")),
-    dataFim: formatarData(new Date("2024-06-26T00:52:21.920Z")),
-    status: CampaignStatus.ACTIVE,
-    categoria: { _id: "1", name: "Categoria 1" },
-  },
-  {
-    id: 2,
-    nome: "Campanha de Inverno",
-    dataCadastro: formatarData(new Date("2024-06-26T00:52:21.920Z")),
-    dataInicio: formatarData(new Date("2024-06-26T00:52:21.920Z")),
-    dataFim: formatarData(new Date("2024-06-26T00:52:21.920Z")),
-    status: CampaignStatus.ACTIVE,
-    categoria: { _id: "1", name: "Categoria 1" },
-  },
-  {
-    id: 3,
-    nome: "Campanha de Primavera",
-    dataCadastro: formatarData(new Date("2024-06-26T00:52:21.920Z")),
-    dataInicio: formatarData(new Date("2024-06-26T00:52:21.920Z")),
-    dataFim: formatarData(new Date("2024-06-26T00:52:21.920Z")),
-    status: CampaignStatus.ACTIVE,
-    categoria: { _id: "1", name: "Categoria 1" },
-  },
-  {
-    id: 4,
-    nome: "Campanha de Outono",
-    dataCadastro: formatarData(new Date("2024-06-26T00:52:21.920Z")),
-    dataInicio: formatarData(new Date("2024-06-26T00:52:21.920Z")),
-    dataFim: formatarData(new Date("2024-06-26T00:52:21.920Z")),
-    status: CampaignStatus.ACTIVE,
-    categoria: { _id: "1", name: "Categoria 1" },
-  },
-  {
-    id: 5,
-    nome: "Black Friday",
-    dataCadastro: formatarData(new Date("2024-06-26T00:52:21.920Z")),
-    dataInicio: formatarData(new Date("2024-06-26T00:52:21.920Z")),
-    dataFim: formatarData(new Date("2024-06-26T00:52:21.920Z")),
-    status: CampaignStatus.ACTIVE,
-    categoria: { _id: "1", name: "Categoria 1" },
-  },
 ];

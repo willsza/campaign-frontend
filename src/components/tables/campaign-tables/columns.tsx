@@ -3,6 +3,7 @@
 import { ColumnDef } from "@tanstack/react-table";
 
 import { Checkbox } from "@/components/ui/checkbox";
+import { dataTimeFormat } from "@/lib/utils";
 import { Campaign } from "@/models/campaign";
 import { CellAction } from "./cell-action";
 
@@ -37,10 +38,12 @@ export const columns: ColumnDef<Campaign>[] = [
   {
     accessorKey: "dataInicio",
     header: "INÍCIO",
+    cell: ({ row }) => dataTimeFormat(new Date(row.original.dataInicio)),
   },
   {
     accessorKey: "dataFim",
     header: "TÉRMINO",
+    cell: ({ row }) => dataTimeFormat(new Date(row.original.dataInicio)),
   },
   {
     accessorKey: "status",

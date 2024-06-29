@@ -8,9 +8,9 @@ export enum CampaignStatus {
 export type Campaign = {
   id: number;
   nome: string;
-  dataInicio: string;
-  dataFim: string;
-  dataCadastro: string;
+  dataInicio: Date;
+  dataFim: Date;
+  dataCadastro: Date;
   categoria: Category;
   status: CampaignStatus;
 };

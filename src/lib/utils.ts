@@ -5,18 +5,16 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function formatarData(data: Date) {
+export function dataTimeFormat(data: Date) {
   const opcoes: Intl.DateTimeFormatOptions = {
-    weekday: "short", // "Tue"
-    year: "numeric", // "2024"
-    month: "short", // "Jun"
-    day: "numeric", // "25"
-    hour: "2-digit", // "21"
-    minute: "2-digit", // "52"
-    second: "2-digit", // "21"
-    timeZoneName: "short", // "GMT-3"
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
     timeZone: "America/Sao_Paulo",
   };
+
   // Garante que a formatação seja feita em pt-BR e considera o fuso horário de São Paulo
   return new Intl.DateTimeFormat("pt-BR", opcoes).format(data);
 }

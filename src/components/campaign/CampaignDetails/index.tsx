@@ -7,6 +7,7 @@ import { CampaignForm } from "@/components/campaign/Form";
 import { Heading } from "@/components/ui/heading";
 import { Separator } from "@/components/ui/separator";
 import { toast } from "@/components/ui/use-toast";
+import { dataTimeFormat } from "@/lib/utils";
 import { Campaign } from "@/models/campaign";
 import { Category } from "@/models/categories";
 import { formSchemaType } from "@/schemas/campaign";
@@ -22,6 +23,7 @@ export function CampaignDetails({
 }: CampaignDetailsProps) {
   const title = "Editar campanha";
   const description = "Edite os dados da campanha.";
+  const registrationDate = new Date(campaign.dataCadastro);
 
   const handleSubmit = async (values: formSchemaType) => {
     try {
@@ -47,7 +49,7 @@ export function CampaignDetails({
       <Separator />
       <section className="flex items-center gap-4">
         <p>
-          <strong>Cadastrada em:</strong> {campaign.dataCadastro}
+          <strong>Cadastrada em:</strong> {dataTimeFormat(registrationDate)}
         </p>
         <p>
           <strong>Status:</strong> {campaign.status}
