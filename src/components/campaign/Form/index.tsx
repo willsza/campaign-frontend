@@ -93,7 +93,7 @@ export function CampaignForm({
                       >
                         <CalendarIcon className="mr-2 h-4 w-4" />
                         {field.value ? (
-                          format(field.value, "PPP")
+                          format(field.value, "dd/MM/yyyy")
                         ) : (
                           <span>Selecione a data</span>
                         )}
@@ -104,9 +104,7 @@ export function CampaignForm({
                         mode="single"
                         selected={field.value}
                         onSelect={field.onChange}
-                        disabled={(date: Date) =>
-                          date > new Date() || date < new Date("1900-01-01")
-                        }
+                        disabled={(date: Date) => date < new Date()}
                         initialFocus
                       />
                     </PopoverContent>
@@ -135,7 +133,7 @@ export function CampaignForm({
                       >
                         <CalendarIcon className="mr-2 h-4 w-4" />
                         {field.value ? (
-                          format(field.value, "PPP")
+                          format(field.value, "dd/MM/yyyy")
                         ) : (
                           <span>Selecione a data</span>
                         )}
@@ -147,7 +145,7 @@ export function CampaignForm({
                         selected={field.value}
                         onSelect={field.onChange}
                         disabled={(date: Date) =>
-                          date > new Date() || date < new Date("1900-01-01")
+                          date < new Date(form.getValues("dataInicio"))
                         }
                         initialFocus
                       />
