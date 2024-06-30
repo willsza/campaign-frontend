@@ -20,6 +20,7 @@ export async function campaignList() {
     throw new Error("Failed to fetch data");
   }
 
+  revalidateTag("campaigns");
   return res.json();
 }
 

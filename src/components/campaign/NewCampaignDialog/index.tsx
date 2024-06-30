@@ -21,9 +21,9 @@ export function NewCampaignDialog() {
   const [open, setOpen] = useState(false);
 
   const categories = [
-    { _id: "1", name: "Categoria 1" },
-    { _id: "2", name: "Categoria 2" },
-    { _id: "3", name: "Categoria 3" },
+    { id: "1", name: "Categoria 1" },
+    { id: "2", name: "Categoria 2" },
+    { id: "3", name: "Categoria 3" },
   ];
 
   const handleSubmit = async (values: formSchemaType) => {

@@ -35,7 +35,7 @@ import { formSchema, formSchemaType } from "@/schemas/campaign";
 
 type CampaignFormProps = {
   campaign?: Campaign;
-  categories: { _id: string; name: string }[];
+  categories: { id: string; name: string }[];
   onSubmit: (values: formSchemaType) => void;
 };
 
@@ -48,9 +48,9 @@ export function CampaignForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
       nome: campaign?.nome || "",
-      dataInicio: new Date(),
-      dataFim: new Date(),
-      categoria: campaign?.categoria._id || "",
+      dataInicio: campaign?.dataInicio || new Date(),
+      dataFim: campaign?.dataFim || new Date(),
+      categoria: campaign?.categoria?.id || "",
     },
   });
 
@@ -172,7 +172,7 @@ export function CampaignForm({
                 </FormControl>
                 <SelectContent>
                   {categories.map((category) => (
-                    <SelectItem key={category._id} value={category._id}>
+                    <SelectItem key={category.id} value={category.id}>
                       {category.name}
                     </SelectItem>
                   ))}
