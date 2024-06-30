@@ -31,7 +31,6 @@ export function CampaignDetails({
       toast({
         title: "Success",
         description: "Campanha editada com sucesso.",
-        variant: "accent",
       });
     } catch (error) {
       toast({
