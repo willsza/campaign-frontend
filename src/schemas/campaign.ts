@@ -14,7 +14,7 @@ export const formSchema = z.object({
   dataFim: z.date({
     required_error: "A data de término é obrigatória.",
   }),
-  categoria: z.string({
+  categoryId: z.number({
     required_error: "Categoria é obrigatória.",
   }),
 });

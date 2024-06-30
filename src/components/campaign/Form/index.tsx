@@ -31,11 +31,12 @@ import {
 } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
 import { Campaign } from "@/models/campaign";
+import { Category } from "@/models/categories";
 import { formSchema, formSchemaType } from "@/schemas/campaign";
 
 type CampaignFormProps = {
   campaign?: Campaign;
-  categories: { id: string; name: string }[];
+  categories: Category[];
   onSubmit: (values: formSchemaType) => void;
 };
 
@@ -48,9 +49,9 @@ export function CampaignForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
       nome: campaign?.nome || "",
-      dataInicio: campaign?.dataInicio || new Date(),
-      dataFim: campaign?.dataFim || new Date(),
-      categoria: campaign?.categoria?.id || "",
+      dataInicio: new Date(campaign?.dataInicio!) || new Date(),
+      dataFim: new Date(campaign?.dataFim!) || new Date(),
+      categoryId: campaign?.categoria?.id || 0,
     },
   });
 
@@ -160,11 +161,14 @@ export function CampaignForm({
 
         <FormField
           control={form.control}
-          name="categoria"
+          name="categoryId"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Categoria</FormLabel>
-              <Select onValueChange={field.onChange} defaultValue={field.value}>
+              <Select
+                onValueChange={(value) => field.onChange(Number(value))}
+                defaultValue={String(field.value)}
+              >
                 <FormControl>
                   <SelectTrigger>
                     <SelectValue placeholder="Selecione a categoria" />
@@ -172,7 +176,7 @@ export function CampaignForm({
                 </FormControl>
                 <SelectContent>
                   {categories.map((category) => (
-                    <SelectItem key={category.id} value={category.id}>
+                    <SelectItem key={category.id} value={String(category.id)}>
                       {category.name}
                     </SelectItem>
                   ))}

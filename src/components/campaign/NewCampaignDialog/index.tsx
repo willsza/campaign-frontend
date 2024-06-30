@@ -15,20 +15,19 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { toast } from "@/components/ui/use-toast";
+import { Category } from "@/models/categories";
 import { formSchemaType } from "@/schemas/campaign";
 
-export function NewCampaignDialog() {
-  const [open, setOpen] = useState(false);
+type NewCampaignDialogProps = {
+  categories: Category[];
+};
 
-  const categories = [
-    { id: "1", name: "Categoria 1" },
-    { id: "2", name: "Categoria 2" },
-    { id: "3", name: "Categoria 3" },
-  ];
+export function NewCampaignDialog({ categories }: NewCampaignDialogProps) {
+  const [open, setOpen] = useState(false);
 
   const handleSubmit = async (values: formSchemaType) => {
     try {
-      const formId = await campaignCreate(values);
+      await campaignCreate(values);
       toast({
         title: "Success",
         description: "Campanha criada com sucesso.",

@@ -4,11 +4,14 @@ import { NewCampaignDialog } from "@/components/campaign/NewCampaignDialog";
 import { DataTable } from "@/components/ui/data-table";
 import { Heading } from "@/components/ui/heading";
 import { Separator } from "@/components/ui/separator";
+import { categories } from "@/constants/data";
 import { Campaign } from "@/models/campaign";
+import { Category } from "@/models/categories";
 import { columns } from "./columns";
 
 interface CampaignsProps {
   data: Campaign[];
+  categories: Category[];
 }
 
 export const CampaignClient: React.FC<CampaignsProps> = ({ data }) => {
@@ -19,7 +22,7 @@ export const CampaignClient: React.FC<CampaignsProps> = ({ data }) => {
           title={`Campanhas (${data.length})`}
           description="Gerenciamento de campanhas"
         />
-        <NewCampaignDialog />
+        <NewCampaignDialog categories={categories} />
       </div>
       <Separator />
       <DataTable searchKey="nome" columns={columns} data={data} />

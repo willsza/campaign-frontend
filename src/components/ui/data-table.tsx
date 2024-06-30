@@ -39,7 +39,7 @@ export function DataTable<TData, TValue>({
   });
 
   /* this can be used to get the selectedrows 
-  console.log("value", table.getFilteredSelectedRowModel()); */
+  console.info("value", table.getFilteredSelectedRowModel()); */
 
   return (
     <>
