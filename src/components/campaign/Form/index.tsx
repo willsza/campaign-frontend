@@ -49,8 +49,8 @@ export function CampaignForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
       nome: campaign?.nome || "",
-      dataInicio: new Date(campaign?.dataInicio!) || new Date(),
-      dataFim: new Date(campaign?.dataFim!) || new Date(),
+      dataInicio: campaign ? new Date(campaign.dataInicio) : new Date(),
+      dataFim: campaign ? new Date(campaign.dataFim) : new Date(),
       categoryId: campaign?.categoria?.id || 0,
     },
   });
