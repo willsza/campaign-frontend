@@ -1,8 +1,8 @@
 import { campaignById } from "@/actions/campaign";
+import { categoryList } from "@/actions/category";
 import { CampaignDetails } from "@/components/campaign/CampaignDetails";
 import BreadCrumb from "@/components/layout/Breadcrumb";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { categories } from "@/constants/data";
 
 type CampaignPageProps = {
   params: {
@@ -13,6 +13,7 @@ type CampaignPageProps = {
 export default async function Page({ params }: CampaignPageProps) {
   const id = Number(params.campaignId);
   const campaign = await campaignById(id);
+  const categories = await categoryList();
 
   const breadcrumbItems = [
     { title: "Campanhas", link: "/dashboard/campaigns" },
