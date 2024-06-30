@@ -25,6 +25,8 @@ type NewCampaignDialogProps = {
 export function NewCampaignDialog({ categories }: NewCampaignDialogProps) {
   const [open, setOpen] = useState(false);
 
+  console.log(categories);
+
   const handleSubmit = async (values: formSchemaType) => {
     try {
       await campaignCreate(values);
