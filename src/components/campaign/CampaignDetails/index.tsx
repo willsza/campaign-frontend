@@ -27,10 +27,11 @@ export function CampaignDetails({
 
   const handleSubmit = async (values: formSchemaType) => {
     try {
-      const formId = await campaignUpdate(campaign.id, values);
+      await campaignUpdate(campaign.id, values);
       toast({
         title: "Success",
         description: "Campanha editada com sucesso.",
+        variant: "accent",
       });
     } catch (error) {
       toast({
