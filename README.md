@@ -1,4 +1,4 @@
-Uma breve descrição do projeto, o que ele faz e por que ele é útil.
+Este projeto utiliza **Next.js** para renderização no lado do servidor e geração de sites estáticos, proporcionando SEO aprimorado e performance otimizada. **Server Components** e **Server Actions** são utilizados para melhorar a performance e a segurança, dividindo a renderização entre cliente e servidor e manipulando dados diretamente no servidor. O gerenciamento de formulários é simplificado com **React Hook Form**, enquanto **Zod** garante validação robusta de dados. **Zustand** facilita o gerenciamento de estado com uma API intuitiva. Para estilização, **Tailwind CSS** oferece uma abordagem utilitária eficiente, e **shadcn/ui** fornece componentes de interface de usuário pré-construídos e customizáveis, acelerando o desenvolvimento e mantendo a consistência visual.
 
 ## Tecnologias Utilizadas
 
@@ -60,22 +60,28 @@ Abra http://localhost:3000 com seu navegador para ver o resultado.
 Aqui está a estrutura básica do projeto:
 
 ```
-/nome-do-repositorio
+/campaign-frontend
 ├── public
 │   ├── favicon.ico
 │   └── ...
 ├── src
-│   ├── components
+│   ├── actions
+│   │   └── ...
+│   ├── app
 │   │   └── ...
 │   ├── components
+│   │   └── ...
+│   ├── constants
 │   │   └── ...
 │   ├── hooks
 │   │   └── ...
-│   ├── pages
+│   ├── lib
 │   │   └── ...
-│   ├── styles
+│   ├── models
 │   │   └── ...
-│   ├── utils
+│   ├── schemas
+│   │   └── ...
+│   ├── types
 │   │   └── ...
 │   └── ...
 ├── .env.local
