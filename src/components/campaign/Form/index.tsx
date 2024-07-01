@@ -50,7 +50,9 @@ export function CampaignForm({
     defaultValues: {
       nome: campaign?.nome || "",
       dataInicio: campaign ? new Date(campaign.dataInicio) : new Date(),
-      dataFim: campaign ? new Date(campaign.dataFim) : new Date(),
+      dataFim: campaign
+        ? new Date(campaign.dataFim)
+        : new Date(Date.now() + 86400000),
       categoryId: campaign?.category?.id || 0,
     },
   });
