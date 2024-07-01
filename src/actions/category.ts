@@ -1,7 +1,9 @@
 "use server";
 
+import { API_BASE } from "@/constants/constants";
+
 export const categoryList = async () => {
-  const res = await fetch("http://localhost:3001/categories", {
+  const res = await fetch(`${API_BASE}/categories`, {
     next: {
       tags: ["categories"],
     },

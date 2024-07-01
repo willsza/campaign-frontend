@@ -2,6 +2,7 @@
 
 import { revalidateTag } from "next/cache";
 
+import { API_BASE } from "@/constants/constants";
 import { formSchema, formSchemaType } from "@/schemas/campaign";
 
 /**
@@ -10,7 +11,7 @@ import { formSchema, formSchemaType } from "@/schemas/campaign";
  * @throws An error if the request fails.
  */
 export async function campaignList() {
-  const res = await fetch("http://localhost:3001/campaigns", {
+  const res = await fetch(`${API_BASE}/campaigns`, {
     next: {
       tags: ["campaigns"],
     },
@@ -31,7 +32,7 @@ export async function campaignList() {
  * @throws An error if the request fails.
  */
 export async function campaignById(id: number) {
-  const res = await fetch(`http://localhost:3001/campaigns/${id}`, {
+  const res = await fetch(`${API_BASE}/campaigns/${id}`, {
     next: {
       tags: ["campaigns"],
     },
@@ -57,7 +58,7 @@ export async function campaignCreate(body: formSchemaType) {
     throw new Error("form not valid");
   }
 
-  const res = await fetch("http://localhost:3001/campaigns", {
+  const res = await fetch(`${API_BASE}/campaigns`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -87,7 +88,7 @@ export async function campaignUpdate(id: number, body: formSchemaType) {
     throw new Error("form not valid");
   }
 
-  const res = await fetch(`http://localhost:3001/campaigns/${id}`, {
+  const res = await fetch(`${API_BASE}/campaigns/${id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -110,7 +111,7 @@ export async function campaignUpdate(id: number, body: formSchemaType) {
  * @throws An error if the request fails.
  */
 export async function campaignDelete(id: number) {
-  const res = await fetch(`http://localhost:3001/campaigns/${id}`, {
+  const res = await fetch(`${API_BASE}/campaigns/${id}`, {
     method: "DELETE",
   });
 

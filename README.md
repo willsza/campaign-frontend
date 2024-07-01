@@ -96,6 +96,8 @@ Certifique-se de configurar suas variáveis de ambiente no arquivo `.env.`local,
 
 ```
 # Exemplo de variáveis de ambiente
-NEXT_PUBLIC_API_URL=http://api.example.com
-ANOTHER_ENV_VARIABLE=value
+NEXT_PUBLIC_API_URL=http://localhost:3001
+NEXT_PUBLIC_API_MOCKING=disabled
+
+API_BASE_URL=http://localhost:3001
 ```
