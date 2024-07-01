@@ -44,7 +44,7 @@ export const columns: ColumnDef<Campaign>[] = [
   {
     accessorKey: "dataFim",
     header: "TÉRMINO",
-    cell: ({ row }) => dataTimeFormat(new Date(row.original.dataInicio)),
+    cell: ({ row }) => dataTimeFormat(new Date(row.original.dataFim)),
   },
   {
     accessorKey: "status",
