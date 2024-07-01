@@ -34,6 +34,7 @@ export const columns: ColumnDef<Campaign>[] = [
   {
     accessorKey: "categoria",
     header: "CATEGORIA",
+    cell: ({ row }) => row.original.category?.name || "-",
   },
   {
     accessorKey: "dataInicio",

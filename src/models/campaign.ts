@@ -11,7 +11,7 @@ export type Campaign = {
   dataInicio: Date;
   dataFim: Date;
   dataCadastro: Date;
-  categoria: Category;
+  category: Category;
   status: CampaignStatus;
 };
 

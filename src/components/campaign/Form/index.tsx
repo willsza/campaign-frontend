@@ -51,7 +51,7 @@ export function CampaignForm({
       nome: campaign?.nome || "",
       dataInicio: campaign ? new Date(campaign.dataInicio) : new Date(),
       dataFim: campaign ? new Date(campaign.dataFim) : new Date(),
-      categoryId: campaign?.categoria?.id || 0,
+      categoryId: campaign?.category?.id || 0,
     },
   });
 
